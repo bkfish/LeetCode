@@ -1,11 +1,13 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct ListNode{
-	int val;
-	struct ListNode *next;
-};
-struct ListNode * addTwoNumbers(struct ListNode *l1,struct ListNode *l2) 
-{
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
 	if(l1==NULL)
 	return l2;
 	if(l2==NULL)
@@ -52,64 +54,4 @@ struct ListNode * addTwoNumbers(struct ListNode *l1,struct ListNode *l2)
 		last->next=NULL;
 	}
 	return ans;
-};
-int main(){
-	ListNode *l1=(ListNode *)malloc(sizeof(ListNode));
-	ListNode *l2=(ListNode *)malloc(sizeof(ListNode));
-	ListNode *cur1=l1;
-	cur1->val=2;
-	
-	ListNode *temp=(ListNode *)malloc(sizeof(ListNode));
-	temp->val=4;
-	temp->next=NULL;
-	cur1->next=temp;
-	cur1=temp;
-	
-	temp=(ListNode *)malloc(sizeof(ListNode));
-	temp->val=3;
-	temp->next=NULL;
-	cur1->next=temp;
-	
-	ListNode *cur2=l2;
-	cur2->val=5;
-	
-	temp=(ListNode *)malloc(sizeof(ListNode));
-	temp->val=6;
-	temp->next=NULL;
-	cur2->next=temp;
-	cur2=temp;
-	
-	temp=(ListNode *)malloc(sizeof(ListNode));
-	temp->val=4;
-	temp->next=NULL;
-	cur2->next=temp;
-	
-	printf("Êä³öL1:\n");
-	temp=l1;
-	while(temp!=NULL)
-	{
-		printf("%d ",temp->val);
-		temp=temp->next;
-	}
-
-
-	printf("\nÊä³öL2:\n");
-	temp=l2;
-	while(temp!=NULL)
-	{
-		printf("%d ",temp->val);
-		temp=temp->next;
-	}
-	
-	ListNode *l3= addTwoNumbers(l1,l2);
-	
-	printf("\nÊä³öL3:\n");
-	temp=l3;
-	while(temp!=NULL)
-	{
-		printf("%d ",temp->val);
-		temp=temp->next;
-	}
-	return 0;
 }
-
